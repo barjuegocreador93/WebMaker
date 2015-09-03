@@ -9,6 +9,7 @@
  *
  * @author barc
  */
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 class functionsPhp {
     //put your code here
     public function __construct() {
@@ -22,13 +23,21 @@ class functionsPhp {
             $j.=$jquery;
             $j.="});";
             $j.=$scrp2;
-            $j.="</script>";
+            $j.="</script>\n";
             echo $j;
     }
     
-    public function mkjqueryPHP($html,$method='empty',$jquery='')
+    public function mkjqueryPHP($html,$method='empty',$jquery='',$hold="html")
     {
-        return "$('$html').$method('$jquery');";
+        if($jquery=='')
+        {
+            return "$('$html').$method();";
+        }
+        if($hold=="html"){
+        return "$('$html').$method('$jquery');";}
+    else {
+        return "$('$html').$method($jquery);";
+    }
     }
     public function mkjhtmlPHP($html, $attr= array("class"=>""),$text='', $jp="first",$etiquets=1)
     {
@@ -96,7 +105,7 @@ class functionsPhp {
                
             }       
         $j=$this->mkjhtmlPHP("form",array("action"=>$url,"method"=>$method),$i,"frist",2);
-        $k.=$this->mkjqueryPHP($html_putform,"append",$j);
+        $k=$this->mkjqueryPHP($html_putform,"append",$j);
         $this->mkjsPHP(";", $k);
     }
     

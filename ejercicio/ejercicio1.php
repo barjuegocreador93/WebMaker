@@ -12,10 +12,13 @@ if($num1>$num2)
     echo "el mayor es numero: ".$num1 . "<br>";
     echo "el menor es numero: ".$num2;
 }
-else
+else if($num1<$num2)
 {
     echo "el mayor  es numero: ".$num2 . "<br>";
     echo "el menor es numero: ".$num1;
+}else
+{
+    echo "Son Iguales";
 }
 
 
