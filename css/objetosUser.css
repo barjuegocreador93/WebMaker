@@ -1,0 +1,54 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/09/2015, 01:56:49 AM
+    Author     : barc
+*/
+
+#tablero
+{
+   padding:5px;
+}
+
+#tablero *
+{
+    float: left;
+    border: 5px;
+    border-color: transparent;
+    border-style: solid;
+    padding:5px;
+}
+#tablero *:empty{
+    border-color: grey;
+    border-style: double;
+}
+
+#tablero *:hover{
+    border-color: blue;
+    border-style: solid;
+}
+
+#tablero *:active{
+    border-color: green;
+}
+
+
+#tablero header{
+    width: 96.8%;
+    
+}
+
+#tablero article
+{
+    width: 40%;
+    
+}
+
+#tablero section
+{
+    width: 53.33%;
+    
+}
