@@ -19,7 +19,8 @@ and open the template in the editor.
     border: 5px;
     border-color: transparent;
     border-style: solid;
-    padding:5px;
+    padding: 1px;
+    
 }
 #tablero *:empty{
     border-color: grey;
@@ -37,7 +38,7 @@ and open the template in the editor.
 
 
 #tablero header{
-    width: 96.8%;
+    width: 98%;
     
 }
 
@@ -49,7 +50,7 @@ and open the template in the editor.
 
 #tablero section
 {
-    width: 53.33%;
+    width: 56%;
     
 }
 .descartado{

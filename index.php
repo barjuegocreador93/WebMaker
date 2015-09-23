@@ -24,13 +24,16 @@ and open the template in the editor.
         <div class="esp"></div>       
         <article>
             <a class="bot">Seleccionado</a>
-            <h2>Herramientas</h2>
+            <h2>Objetos</h2>
+            <h3>Estrcuturas HTML5:</h3>
             <div class="esp"></div>
             <ul>
                 <li id="header">Header</li>
                 <li id="article">Article</li>
                 <li id="section">Section</li>
             </ul>
+            
+            
         </article>
         
         <div id="cont1">
@@ -40,7 +43,11 @@ and open the template in the editor.
             
             </div>
         </div>
-        
+        <section>
+            <h2>Objeto selecionado: </h2>
+                 
+            
+        </section>
         
         <form action="index.php" method="post">
             <div id="css"></div>

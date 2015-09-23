@@ -57,6 +57,7 @@ function wmob()
 
 
 $(document).keydown(function(tecla){
+    //tecla Supr:Borrar elemento
     if (tecla.keyCode === 46 &&(select!=="")) {
        var s;
        var x=1;
@@ -65,13 +66,10 @@ $(document).keydown(function(tecla){
            $(select).addClass("descartado");
            $(select+" *").addClass("descartado");
            select=""; 
-       }
-       
-       
-       
-       
-       
+       }      
     }
+    
+    //tecla s:Guardar
     if (tecla.keyCode === 83 &&select!=='#tablero') {
        descartados=0;
        for(var i=0;looking(".wmob"+i+"")&&x;i++)
@@ -85,9 +83,7 @@ $(document).keydown(function(tecla){
        {
            $("#tablero").empty();
            objets=0;
-       }
-       
-        
+       }       
     }
 });
 

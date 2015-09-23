@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : barc
 */
 
-            body header *, body #tablero, body article, body nav 
+            body header *, body #tablero, body article, body nav, body section 
             {
                 float: left;
             }
@@ -25,6 +25,8 @@ and open the template in the editor.
                 width:60px;
                 height:60px;
             }
+            
+            
             body nav
             {
                 
