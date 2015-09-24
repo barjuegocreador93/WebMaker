@@ -6,11 +6,37 @@
 
 var objets=0;
 var select="";
+var objArray=[];
+var body={classes:[]};
 
+function objetosMK(html,etiquetas)
+{
+    $('#'+html).click(function()
+    {
+         if(select!=="")
+        {
+        if(etiquetas===null)$(select).append("<"+html+" class='wmob"+objets+"'></"+html+">");
+        else $(select).append("<"+html+" class='wmob"+objets+" '>");
+        var a=new wmob();
+        var obj={class:'.wmob'+objets+'',html:html,childof:select,classes:[]};
+        objArray.push(obj);
+        objets++;
+    }
+    });
+}
 
+function indiceObjeto(obj)
+{
+    for(var i=0;i<objets;i++)
+     {
+              if(".wmob"+i+""===obj)
+              {
+                  return i;
+              }
+     }
+}
 
-
-function selectObj(elem,name)
+function selectObj(elem,name,num)
 {
     $(elem).click(function()
         {
@@ -38,6 +64,10 @@ function selectObj(elem,name)
                $(this).css("border-color","red");
             }
             
+            $('#html_name').text(objArray[num].html);
+            $('#html_class').text(objArray[num].classes);
+            $("#html_class").next().fadeIn();
+            
             
             
         });
@@ -50,7 +80,7 @@ function wmob()
     
     for(var i=0;looking(".wmob"+i+"");i++)
     {
-        selectObj(".wmob"+i+"",".wmob");
+        selectObj(".wmob"+i+"",".wmob",i);
         
     }
 }
@@ -61,7 +91,7 @@ $(document).keydown(function(tecla){
     if (tecla.keyCode === 46 &&(select!=="")) {
        var s;
        var x=1;
-       if(select!="#tablero")
+       if(select!=="#tablero")
        {
            $(select).addClass("descartado");
            $(select+" *").addClass("descartado");
@@ -89,10 +119,7 @@ $(document).keydown(function(tecla){
 
 
 $(document).ready(function(){
-    $(".bot").click(function()
-    {
-        alert("La hoja de trabajo slecciona a: "+select);
-    });
+    
     
     $('#tablero').click(function()
     {
@@ -113,38 +140,65 @@ $(document).ready(function(){
         if(!no){
             select='#tablero';
             $(this).css("border-color","red");
+            $('#html_name').text("body");
+            $('#html_class').text("");
+            $("#html_class").next().fadeIn();
         }
         $(this).css({
             'heigth':'20px'
         });
-    });    
-    
-    $('#header').click(function()
-    {
-        if(select!=="")
-        {
-            $(select).append("<header class='wmob"+objets+"'></header>");
-            var a=new wmob();
-            objets++;
-        }
         
-    });    
-    $('#article').click(function()
+        
+    });   
+    //Objetos html a crear:
+    objetosMK("header");  
+    objetosMK("article");   
+    objetosMK("section");    
+    
+    for(var i=1;i<=6;i++)
+    objetosMK("h"+i+"");
+    
+    
+
+    
+    
+    
+    
+    
+    $("#html_class").next().hide();
+    
+    $("#html_finish").click(function()
     {
-         if(select!=="")
-        {
-        $(select).append("<article class='wmob"+objets+"'></article>");
-        var a=new wmob();
-        objets++;
-    }
-    });    
-    $('#section').click(function()
-    {
-         if(select!=="")
-        {
-        $(select).append("<section class='wmob"+objets+"'></section>");
-         var a=new wmob();
-        objets++;
-    }
+      var classes =$("input[name='html_class']").val();
+      if(classes!==""){
+      if(isJQ(select,"."+classes)&&classes!=select)
+      {
+          var is=indiceObjeto(select);
+          
+          for(var i=0;i<objArray[is].classes.length;i++)
+          if(objArray[is].classes[i]===classes)
+            {
+               delete     objArray[is].classes[i]; 
+            }
+          $(select).remove(classes);
+      }
+      else{
+          var is=indiceObjeto(select);
+          
+          objArray[is].classes.push(classes);
+          $(select).addClass(classes);
+      }
+       }
+      var a=$("input[name='html_text']").val();
+      $(select).append(a);
+      
+      
     });
+    
+    $("input[name='html_texter").click(function(){
+        $(select).empty();
+    });
+    
+    
 });
+

@@ -31,6 +31,13 @@ and open the template in the editor.
                 <li id="header">Header</li>
                 <li id="article">Article</li>
                 <li id="section">Section</li>
+                <li id="h1">h1</li>
+                <li id="h2">h2</li>
+                <li id="h3">h3</li>
+                <li id="h4">h4</li>
+                <li id="h5">h5</li>
+                <li id="h6">h6</li>
+                <li id="input">Input</li>
             </ul>
             
             
@@ -44,9 +51,13 @@ and open the template in the editor.
             </div>
         </div>
         <section>
-            <h2>Objeto selecionado: </h2>
-                 
-            
+            <h3>Objeto selecionado: </h3>
+            <ul>
+                <li>Nombre: <span id="html_name"></span></li>
+                <li>Classes: <span id="html_class"></span><div>Add/rm clase: <input type="text" name="html_class"></div></li>
+                <li><div>Text: <input type="text" name="html_text"></div><input type="button" name="html_texter" value="Borrar"> </li>
+            </ul>
+            <button id="html_finish">Mostar Cambios</button>
         </section>
         
         <form action="index.php" method="post">
