@@ -55,7 +55,14 @@ and open the template in the editor.
             <ul>
                 <li>Nombre: <span id="html_name"></span></li>
                 <li>Classes: <span id="html_class"></span><div>Add/rm clase: <input type="text" name="html_class"></div></li>
-                <li><div>Text: <input type="text" name="html_text"></div><input type="button" name="html_texter" value="Borrar"> </li>
+                <li id="html_text"><div >Text: <input type="text" name="html_text"></div><input type="button" name="html_texter" value="Borrar"> </li>
+                <div id="html_attr" >
+                    <h3>Atributes: </h3>
+                    <li id="html_attr_type" class="descartado">Type:  <input type="text"></li>
+                    <li id="html_attr_name" class="descartado">Name:  <input type="text"></li>
+                    <li id="html_attr_style"></li>
+                    <li id="html_attr_userWant"></li>
+                </div>
             </ul>
             <button id="html_finish">Mostar Cambios</button>
         </section>
