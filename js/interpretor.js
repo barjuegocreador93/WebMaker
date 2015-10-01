@@ -40,7 +40,7 @@ function openProyect(id, i, files)
 
             }
         }
-        var tabs = new fast_appi("actab", "tab");
+        var tabs = new fast_appi(".actab", ".tab");
         tabs.run();
         $(".actab1").click();
 
@@ -100,8 +100,9 @@ $(document).ready(function ()
 
 
     });
-    var makepr = new fast_appi("acmak", "slmake");
+    var makepr = new fast_appi(".acmak", ".slmake");
     makepr.run();
+    
     createProyect();
 
 
