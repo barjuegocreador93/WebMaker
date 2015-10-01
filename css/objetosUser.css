@@ -8,12 +8,12 @@ and open the template in the editor.
     Author     : barc
 */
 
-#tablero
+.tablero
 {
    padding:5px;
 }
 
-#tablero *
+.tablero *
 {
     float: left;
     border: 5px;
@@ -22,33 +22,33 @@ and open the template in the editor.
     padding: 1px;
     
 }
-#tablero *:empty{
+.tablero *:empty{
     border-color: grey;
     border-style: double;
 }
 
-#tablero *:hover{
+.tablero *:hover{
     border-color: blue;
     border-style: solid;
 }
 
-#tablero *:active{
+.tablero *:active{
     border-color: green;
 }
 
 
-#tablero header{
+.tablero header{
     width: 98%;
     
 }
 
-#tablero article
+.tablero article
 {
     width: 40%;
     
 }
 
-#tablero section
+.tablero section
 {
     width: 56%;
     

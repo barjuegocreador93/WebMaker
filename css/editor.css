@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : barc
 */
 
-            body header *, body #tablero, body article, body nav, body section 
+            body header *, body .tablero, body article, body nav, body section, .wminterface 
             {
                 float: left;
             }
@@ -35,7 +35,7 @@ and open the template in the editor.
             {
                 
             }
-            #tablero
+            .tablero, .wminterface
             {
                 border: 2px;
                 border-color:  black;
