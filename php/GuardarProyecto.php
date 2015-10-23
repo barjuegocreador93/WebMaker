@@ -11,7 +11,9 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        $proyectos=$_POST["proyects"];
+        $proyectos =json_decode($_POST["proyects"], true);
+        $proyectos=json_encode($proyectos);
+        file_put_contents("../json/proyects.json",$proyectos);
         
         
         ?>

@@ -1,32 +1,43 @@
 {
-    "Proyects":
-            [
-                {
-                    "name": "Mi pagina web",
-                    "autor":"nosequiencito",
-                    "comentario":"esto es tal y tales...",
-                    "files":
-                            [
-                                {
-                                    "name":"index",
-                                    "url": "../Proyects/Mi_pagina_web/index.json",
-                                    "type": "html",
-                                    "dateMade": "06/06/15"
-                                },
-                                {
-                                    "name":"css",
-                                    "url": "css.json",
-                                    "type": "css",
-                                    "dateMade": "06/06/15"
-                                },
-                                {
-                                    "name":"js",
-                                    "url": "js.json",
-                                    "type": "js",
-                                    "dateMade": "06/06/15"
-                                }
-                            ]
-                }
-
-            ]
+    "Proyects": [{
+            "name": "Mi pagina web",
+            "autor": "nosequiencito",
+            "comentario": "esto es tal y tales...",
+            "files": [{
+                    "name": "index",
+                    "url": "..\/Proyects\/Mi_pagina_web\/index.json",
+                    "type": "html",
+                    "dateMade": "06\/06\/15"
+                }, {
+                    "name": "css",
+                    "url": "css.json",
+                    "type": "css",
+                    "dateMade": "06\/06\/15"
+                }, {
+                    "name": "js",
+                    "url": "js.json",
+                    "type": "js",
+                    "dateMade": "06\/06\/15"
+                }]
+        }, {
+            "name": "Web",
+            "autor": "",
+            "comentario": "",
+            "files": [{
+                    "name": "cab",
+                    "url": "Web\/cab.json",
+                    "type": "html",
+                    "dateMade": "592015"
+                }]
+        }, {
+            "name": "web",
+            "autor": "",
+            "comentario": "",
+            "files": [{
+                    "name": "index",
+                    "url": "web\/index.json",
+                    "type": "html",
+                    "dateMade": "592015"
+                }]
+        }]
 }

@@ -275,5 +275,34 @@ function fileBool(name,actual)
 
 function saveNewProject()
 {
-    
+    $("#SaveProyect").click(function()
+    {
+        var proyecto={"name":"","autor":"","comentario":"","files":[]};
+        var file={"name":"","url":"","type":"","dateMade":""};
+        proyecto.name=$("input[name='proyectName']").val();
+        proyecto.autor=$("input[name='proyectAutor']").val();
+        proyecto.comentario=$("input[name='proyectComm']").val();
+        
+        for(var i=0;i<archivos;i++)
+        {
+            file.name=$("input[name='arch"+i+"name']").val();
+            file.url=$("input[name='arch"+i+"url']").val();
+            if(document.getElementById("css"+i+"").checked)
+            {
+                file.type="css";
+            }else if(document.getElementById("html"+i+"").checked)
+            {
+                file.type="html";
+            }else if(document.getElementById("js"+i+"").checked)
+            {
+                file.type="js";
+            }
+            file.dateMade=$("input[name='arch"+i+"dateMade']").val();
+            proyecto.files.push(file);
+        }
+        proyectfile.Proyects.push(proyecto);   
+        var json=JSON.stringify(proyectfile);
+        $.post("../php/GuardarProyecto.php","proyects="+json,{},"json");
+        
+    });
 }
