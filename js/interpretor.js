@@ -2,8 +2,8 @@
 
 
 
-var proyectfile = [];
-var htmlfiles = [];
+var proyectfile = [];//JSON
+var htmlfiles = [];//JSON
 
 
 
@@ -127,40 +127,71 @@ function createProyect()
     {
        archivos=0;
        $(".pfiles").empty();
+       $("input[name='proyectName']").val("");
     });
     
     
     $(".crearfile").click(function()
     {
-        $(".pfiles").append(
-                "<div class='addar"+archivos+"'><br><br> <div>"+
-                      "Nombre: <input type='text' name='arch"+archivos+"name' >"+                 "</div>"+
+        var aux=-1;
+        if(cajavacia.length !== 0)
+        {
+            aux=archivos;
+            archivos=cajavacia[cajavacia.length-1];
+        }
+        $("#SaveProyect").attr("disabled","disabled");
+        if($("input[name='proyectName']").val()!==""&&$("input[name='proyectName']").val()!==" ")
+        {
+        var date=new Date();
+        var cont=" <div class='fnl"+(archivos+1)+"'><br><br>Acrhivo "+(archivos+1)+"</div>"+
+                "<div class='addar"+archivos+" fscl"+(archivos+1)+"'><br><div >"+
+                      "Nombre: <input type='text' name='arch"+archivos+"name' >"+
                  "<div>"+
-                      "Url: <input type='text' name='arch"+archivos+"url' > "+   
+                      "<input type='text' name='arch"+archivos+"url' value='"+$("input[name='proyectName']").val()+"/"+$("input[name='arch"+archivos+"name']").val()+archivos+".json"+"' style='display:none;'> "+   
                  "</div>"+
                  "<div>"+
-                      "Tipo(css/js/html): <input type='text' name='arch"+archivos+"type' >"+    
+                      "<input type='radio' id='css"+archivos+"' name='arch"+archivos+"type' value='CSS'> CSS<br>"+
+                      "<input type='radio' id='html"+archivos+"' name='arch"+archivos+"type' value='HTML' checked> HTML<br>"+
+                      "<input type='radio' id='js"+archivos+"' name='arch"+archivos+"type' value='JS'>  JS<br>"+
                  "</div>"+
                  "<div>"+ 
-                      "Creado: <input type='text' name='arch"+archivos+"dateMade' >"+    
+                      "<input type='day' name='arch"+archivos+"dateMade' value='"+date.getDay()+date.getMonth()+date.getFullYear()+"' style='display:none;' >"+    
                  "</div>"+
                   "<div class='delear"+archivos+"'>"+ 
                       "Borrar"+    
                  "</div>"+
-                "</div>"
-                       
-                
-                );
-            creatArchivos();
+                 "<div class='createfile"+archivos+" '>"+ 
+                      "Guardar"+    
+                 "</div><br><br>"+
+                "</div>";
+            if(aux===-1||archivos===0)$(".pfiles").append(cont);
+            else $(cont).insertAfter(".fscl"+archivos+"");
+                var files=new fast_appi(".fnl",".fscl");
+                files.run();
+                $(".fnl"+(archivos+1)+"").click();
+                $(".fnl"+(archivos+1)+"").css("cursor","pointer");            
+            eraseFiles(archivos);
+            saveFile(archivos);
+            if(aux!==-1)
+            {
+                archivos=aux;
+                cajavacia.pop();
+            }else
+            archivos++;
         
         
-        archivos++;
+        
+        
+    }else
+             alert("Debe colocarle nombre al proyecto!");
     });
+    saveNewProject();
     
 }
-
-function creatArchivos()
+var cajavacia=[];
+function eraseFiles(actual)
 {
+    fileToSave[actual]=false;
     $(".delear"+archivos+"").hover(function()
         {
             $(this).css({"background-color":"red","width":"50px","text-align":"center"});
@@ -171,6 +202,7 @@ function creatArchivos()
             }
              
         });
+        $(".delear"+archivos+"").css("cursor","pointer");
         $(".delear"+archivos+"").mouseleave(function()
         {
             $(this).css({"background-color":"transparent","width":"50px","text-align":"left"});
@@ -178,7 +210,70 @@ function creatArchivos()
         
         $(".delear"+archivos+"").click(function()
         {
-              $(".addar"+archivos+"").remove();
-               archivos--;
+              $(".addar"+actual+"").remove();
+              $(".fnl"+(actual+1)+"").remove();
+              cajavacia.push(actual);
+              cajavacia.sort(function(a, b){return b-a});
+              
         });
+}
+var fileToSave=[];
+
+function saveFile(actual)
+{
+    $(".createfile"+actual+"").hover(function()
+        {
+            $(this).css({"background-color":"green","width":"50px","text-align":"center"});
+            $(this).animate({"width":"200px"});
+                        
+        });
+        
+        $(".createfile"+actual+"").mouseleave(function()
+        {
+            $(this).css({"background-color":"transparent","width":"50px","text-align":"left"});
+        });
+    $(".createfile"+actual+"").css("cursor","pointer");
+    $(".createfile"+actual+"").click(
+    function()
+    {
+        var val=$("input[name='proyectName']").val()+"/"+$("input[name='arch"+actual+"name']").val()+".json";
+        $("input[name='arch"+actual+"url']").val(val);      
+        
+         if($("input[name='arch"+actual+"name']").val()!==""&&$("input[name='arch"+actual+"name']").val()!==" "&&fileBool($("input[name='arch"+actual+"name']").val(),actual))
+         {
+                $(".fscl"+(actual+1)+"").hide();
+                $(".fnl"+(actual+1)+"").fadeIn();
+                fileToSave[actual]=true;
+                for(var i=0;i<fileToSave.length;i++)
+                {
+                    if(!fileToSave[i])
+                        return;
+                }
+                $("#SaveProyect").removeAttr("disabled");
+         }else
+             alert("Debe colocarle nombre al archivo!");
+         
+         
+         
+        
+    }
+            );
+}
+
+
+
+function fileBool(name,actual)
+{
+    for(var i=0;i<archivos;i++)
+    {
+        if(name===$("input[name='arch'"+i+"name']").val()&&i!==actual)
+            return false;
+    }
+    return true;
+}
+
+
+function saveNewProject()
+{
+    
 }

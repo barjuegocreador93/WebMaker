@@ -209,6 +209,5 @@ function wmob()
     for (var i = 0; looking(".wmob" + i + ""); i++)
     {
         selectObj(".wmob" + i + "", ".wmob", i);
-
     }
 }
