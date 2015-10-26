@@ -286,7 +286,7 @@ function saveNewProject()
         for(var i=0;i<archivos;i++)
         {
             file.name=$("input[name='arch"+i+"name']").val();
-            file.url=$("input[name='arch"+i+"url']").val();
+            file.url="../Proyects/"+$("input[name='arch"+i+"url']").val();
             if(document.getElementById("css"+i+"").checked)
             {
                 file.type="css";
