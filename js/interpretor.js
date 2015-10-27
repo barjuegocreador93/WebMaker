@@ -277,8 +277,8 @@ function saveNewProject()
 {
     $("#SaveProyect").click(function()
     {
-        var proyecto={"name":"","autor":"","comentario":"","files":[]};
-        var file={"name":"","url":"","type":"","dateMade":""};
+        var proyecto={"name":"","autor":"","comentario":"","deleted":false,"files":[]};
+        var file={"name":"","url":"","type":"","dateMade":"", "new":true, "deleted":false};
         proyecto.name=$("input[name='proyectName']").val();
         proyecto.autor=$("input[name='proyectAutor']").val();
         proyecto.comentario=$("input[name='proyectComm']").val();

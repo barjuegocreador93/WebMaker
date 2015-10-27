@@ -22,6 +22,8 @@ and open the template in the editor.
             foreach ($pros["files"] as $numf => $file) {
                 $url = "";
                 $type = "";
+                if($file["new"])
+                {
                 foreach ($file as $t => $d) {
 
                     if ($t == "url") {
@@ -44,13 +46,13 @@ and open the template in the editor.
                                         ]
                                     ]
                             ]];
-
-
+                            $file["new"]=false;
                             $json = json_encode($html);
                             file_put_contents($url, $json);
                         }
                     }
                 }
+            }
             }
         }
 
