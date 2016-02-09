@@ -15,8 +15,7 @@ function looking(html)
 
 function ob(activ, slave, nactiv, nslave, id, fps)
 {
-    if (isReady(activ))
-    {
+    
         $(activ).click(function () {
             if (activ !== ArrFastAppi[fps].activ + ArrFastAppi[fps].id + "") {
                 $(ArrFastAppi[fps].activ + ArrFastAppi[fps].id + "").fadeIn();
@@ -52,7 +51,7 @@ function ob(activ, slave, nactiv, nslave, id, fps)
         }
 
 
-    }
+    
     if(looking(activ+"_1"))
     {
         this.sub=new fast_appi(nactiv+id+"_",nslave+id+"_");
@@ -94,4 +93,5 @@ function fast_appi(activ, slave)
         }
     };
 }
+
 
